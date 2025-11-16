@@ -405,5 +405,5 @@ class UIETrainer(Seq2SeqTrainer):
         while os.path.exists(f'{self.args.output_dir}/ckpt_{self.save_index}'):
             self.save_index+=1
         # self.model.save_pretrained(f'{self.args.output_dir}/ckpt_{self.save_index}')  
-        self.model.save_pretrained(f'{self.args.output_dir}/checkpoint-1000')  
+        self.model.save_pretrained(f'{self.args.output_dir}/checkpoint-5000')  
 

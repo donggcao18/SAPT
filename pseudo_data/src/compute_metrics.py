@@ -13,19 +13,19 @@ CURRENT_DIR = os.path.dirname(__file__)
 GPT2TOKENIZER = os.path.join(CURRENT_DIR, "../data/gpt2tokenizer")
 
 
-class GPTTokenizer:
-    gpt_tokenizer = AutoTokenizer.from_pretrained(GPT2TOKENIZER, max_length=1e5)
+# class GPTTokenizer:
+#     gpt_tokenizer = AutoTokenizer.from_pretrained(GPT2TOKENIZER, max_length=1e5)
 
-    def tokenize(self, s):
-        tokens = self.gpt_tokenizer.tokenize(s)
-        # GPT2 uses Byte-level BPE, which will include space as part of the word. 
-        # But for the first word of a sentence, there is no space before it. 
-        # So, we remove all the added spaces ("Ġ"). 
-        tokens = [t.lstrip("Ġ") for t in tokens]
-        return tokens
+#     def tokenize(self, s):
+#         tokens = self.gpt_tokenizer.tokenize(s)
+#         # GPT2 uses Byte-level BPE, which will include space as part of the word. 
+#         # But for the first word of a sentence, there is no space before it. 
+#         # So, we remove all the added spaces ("Ġ"). 
+#         tokens = [t.lstrip("Ġ") for t in tokens]
+#         return tokens
 
 
-xlingual_tokenizer = GPTTokenizer()
+# xlingual_tokenizer = GPTTokenizer()
 
 
 # adapted the flowing from Squad v1.1 evaluation, without removing the articles.
