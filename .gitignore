@@ -5,3 +5,4 @@ __pycache__/
 *.pyo
 your_job_name/
 CODETASK_Benchmark/CodeTask/
+logs_and_outputs/
