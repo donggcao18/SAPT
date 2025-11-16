@@ -16,10 +16,10 @@ LABEL_KEYS = {'CONCODE': 'code',
             'CodeSearchNet': 'docstring',
             'BFP': 'fixed'}
 
-DEFINITION ={ 'CONCODE': 'Generate Java code from the following English description: ',
-            'CodeTrans': 'Translate the following Java code into C#: ',
-            'CodeSearchNet': 'Summarize the following Ruby code into English: ',
-            'BFP': 'Refactor or improve the following Java code: '}
+DEFINITION ={ 'CONCODE': 'Generate Java code from the following English description',
+            'CodeTrans': 'Translate the following Java code into C#',
+            'CodeSearchNet': 'Summarize the following Ruby code into English',
+            'BFP': 'Refactor or improve the following Java code'}
 
 HUGGINGFACE_DATASET = {'CONCODE': 'AhmedSSoliman/CodeXGLUE-CONCODE',
                     'CodeTrans': 'CM/codexglue_codetrans',
