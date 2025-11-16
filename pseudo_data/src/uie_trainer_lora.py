@@ -95,7 +95,7 @@ class UIETrainer(Seq2SeqTrainer):
         if self.args.n_gpu > 1:
             loss = loss.mean()  # mean() to average on multi-gpu parallel training
 
-        if self.args.gradient_accumulation_steps > 1 and not self.deepspeed:
+        if self.args.gradient_accumulation_steps > 1 and not self.is_deepspeed_enabled:
             # deepspeed handles loss scaling by gradient_accumulation_steps in its `backward`
             loss = loss / self.args.gradient_accumulation_steps
 
@@ -127,9 +127,9 @@ class UIETrainer(Seq2SeqTrainer):
         elif self.use_apex:
             with amp.scale_loss(loss, self.optimizer) as scaled_loss:
                 scaled_loss.backward()
-        elif self.deepspeed:
+        elif self.is_deepspeed_enabled:
             # loss gets scaled under gradient_accumulation_steps in deepspeed
-            self.deepspeed.backward(loss)
+            self.is_deepspeed_enabled.backward(loss)
         else:
             loss.requires_grad=True
             loss.backward()
@@ -155,7 +155,7 @@ class UIETrainer(Seq2SeqTrainer):
         prediction_loss_only = prediction_loss_only if prediction_loss_only is not None else args.prediction_loss_only
 
         # if eval is called w/o train init deepspeed here
-        if args.deepspeed and not self.deepspeed:
+        if args.deepspeed and not self.is_deepspeed_enabled:
 
             # XXX: eval doesn't have `resume_from_checkpoint` arg but we should be able to do eval
             # from the checkpoint eventually
@@ -164,7 +164,7 @@ class UIETrainer(Seq2SeqTrainer):
             )
             self.model = deepspeed_engine.module
             self.model_wrapped = deepspeed_engine
-            self.deepspeed = deepspeed_engine
+            self.is_deepspeed_enabled = deepspeed_engine
 
         model = self._wrap_model(self.model, training=False)
 
@@ -404,5 +404,6 @@ class UIETrainer(Seq2SeqTrainer):
         # super().save_model(output_dir, _internal_call)
         while os.path.exists(f'{self.args.output_dir}/ckpt_{self.save_index}'):
             self.save_index+=1
-        self.model.save_pretrained(f'{self.args.output_dir}/ckpt_{self.save_index}')  
+        # self.model.save_pretrained(f'{self.args.output_dir}/ckpt_{self.save_index}')  
+        self.model.save_pretrained(f'{self.args.output_dir}/checkpoint-1000')  
 
