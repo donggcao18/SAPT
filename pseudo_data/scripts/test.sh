@@ -31,6 +31,6 @@ python  src/run_uie_lora.py \
    --overwrite_cache \
    --lr_scheduler_type constant \
    --warmup_steps 0 \
-   --logging_strategy epoch \
-   --save_strategy epoch \
+   --logging_strategy steps \
+   --save_strategy no \
    --top_k $topk  \
