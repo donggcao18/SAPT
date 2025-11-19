@@ -21,7 +21,7 @@ python  src/run_uie_lora.py \
    --do_train \
    --do_predict \
    --predict_with_generate \
-   --model_name_or_path Salesforce/codet5p-220m \
+   --model_name_or_path Salesforce/codet5p-770m \
    --data_dir CodeTask_Benchmark \
    --task_config_dir configs/CodeTask_configs/lookback_BFP \
    --instruction_file configs/instruction_config.json \
