@@ -5,16 +5,16 @@ python src/run_t5.py \
    --model_name_or_path Salesforce/codet5p-220m \
    --data_dir CODETASK_Benchmark \
    --task_order CONCODE,CodeTrans,CodeSearchNet,BFP \
-   --gen_data_dir "generated_data/lora_gen_long_t5" \
+   --gen_data_dir generated_data/lora_gen_long_t5 \
    --task_config_dir configs/CodeTask/CONCODE \
-   --output_dir "logs_and_outputs/your_job_name/outputs/1-CONCODE" \
+   --output_dir logs_and_outputs/your_job_name/outputs/1-CONCODE \
    --per_device_train_batch_size 16 \
    --per_device_eval_batch_size 32 \
    --gradient_accumulation_steps 2 \
    --learning_rate 0.0003 \
    --num_train_epochs 3 \
    --bf16 \
-   --run_name "your_job_name" \
+   --run_name your_job_name \
    --max_source_length 512 \
    --max_target_length 50 \
    --generation_max_length 256 \
@@ -22,13 +22,13 @@ python src/run_t5.py \
    --add_dataset_name False \
    --overwrite_output_dir \
    --overwrite_cache \
-   --lr_scheduler_type "constant" \
+   --lr_scheduler_type constant \
    --warmup_steps 0 \
-   --logging_strategy "steps" \
+   --logging_strategy steps \
    --logging_steps 10 \
    --metric_for_best_model eval_exact_match_for_imdb  \
-   --evaluation_strategy "steps" \
-   --save_strategy "steps" \
+   --evaluation_strategy steps \
+   --save_strategy steps \
    --save_total_limit 1 \
    --load_best_model_at_end \
    --lora_r 8 \
