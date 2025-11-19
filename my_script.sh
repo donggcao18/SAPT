@@ -118,7 +118,7 @@ python src/run_t5.py \
    --lora_dropout 0.0 \
    --data_replay_freq -1 \
    --kl_ratio 0.1 \
-   --attn_temperature 1
+   --attn_temperature 1 
 
 python src/run_t5.py \
    --do_train \
@@ -129,7 +129,7 @@ python src/run_t5.py \
    --previous_prompt_key_path logs_and_outputs/your_job_name/outputs/3-CodeSearchNet/saved_weights/prompts_keys_till_now.pt \
    --data_dir CODETASK_Benchmark \
    --task_order CONCODE,CodeTrans,CodeSearchNet,BFP \
-   --task_config_dir configs/CodeTask/CodeSearchNet \
+   --task_config_dir configs/CodeTask/BFP \
    --output_dir logs_and_outputs/your_job_name/outputs/4-BFP \
    --per_device_train_batch_size 16 \
    --per_device_eval_batch_size 16 \
