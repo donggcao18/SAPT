@@ -45,5 +45,5 @@ python  src/run_uie_lora.py \
    --logging_strategy steps \
    --save_strategy no\
    --top_k $topk  \
-   --max_train_samples 200 \
-   --max_predict_samples 100 \
+   --max_train_samples 10 \
+   --max_predict_samples 10 \
