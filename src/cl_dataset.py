@@ -160,7 +160,7 @@ class CLInstructions(datasets.GeneratorBasedBuilder):
                     "path": split_dir,
                     "task_config": task_configs['dev'],
                     "max_num_instances_per_task": self.config.max_num_instances_per_eval_task,
-                    "subset": "dev"
+                    "subset": "validation"
                 }),
             datasets.SplitGenerator(
                 name=datasets.Split.TEST,
