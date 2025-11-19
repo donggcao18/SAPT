@@ -31,7 +31,7 @@ python  src/run_uie_lora.py \
    --per_device_eval_batch_size 32 \
    --gradient_accumulation_steps 1 \
    --learning_rate $lr \
-   --max_steps  5000 \
+   --max_steps  10000 \
    --run_name Ours_CL_round1 \
    --max_source_length 5 \
    --max_target_length 512 \
@@ -45,5 +45,5 @@ python  src/run_uie_lora.py \
    --logging_strategy steps \
    --save_strategy no\
    --top_k $topk  \
-   --max_train_samples 20 \
-   --max_predict_samples 1 \
+   --max_train_samples 200 \
+   --max_predict_samples 100 \
