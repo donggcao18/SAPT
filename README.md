@@ -11,30 +11,32 @@
 * CUDA 12.2
 
 ## Preparation
+1. Setting up env
+```sh
+conda create -y -n nlp python=3.10.12
+conda activate nlp 
+pip install -r requirements_v2.txt
+```
 
-The train/dev/test data from SuperNI and Long Sequence Benchmark is placed in `/CL_Benchmark`.
+2. Generating data for CodeTask dataset 
+```sh
+python CodeTask_Benchmark/parse_into_json.py
+```
 
-And the generated pseudo data points are in `/generated_data`.
+3. Config for CodeTask has been already created and stored in  `configs/CodeTask`
+
+
+4. And the generated pseudo data points are in `/generated_data`.
 
 ## Training
 
-First run `gen_script_{benchmark}_{model}.py` to obtain the training script.
-
-For example, to implement T5 model on the SuperNI benchmark:
+To implement T5 model on the CodeTask benchmark:
 
 ```sh
-python gen_script_superni_t5.py
+bash my_script.sh
 ```
 
-Then run the resulting script to start the training process.
 
-## Evaluation
-
-To calculate metrics of Average Performance (AP), Forgetting Rate (F.Ra), Forward Transfer (FWT) and Backward Transfer (BWT):
-
-```sh
-python score.py your_result_path single_result_path 
-```
 
 ## Citation
 If you find our work useful for your research, please kindly cite our paper as follows:

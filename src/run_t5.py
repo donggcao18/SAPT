@@ -617,6 +617,7 @@ def main():
         result = compute_metrics(predictions=decoded_preds, references=references)
         result_per_task = compute_grouped_metrics(predictions=decoded_preds, references=references,
                                                   groups=dataset["Task"])
+        
         result.update(result_per_task)
         categories = dataset["Dataset"]
         result_per_category = compute_grouped_metrics(predictions=decoded_preds, references=references,

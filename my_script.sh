@@ -15,9 +15,9 @@ python src/run_t5.py \
    --num_train_epochs 3 \
    --bf16 \
    --run_name your_job_name \
-   --max_source_length 512 \
-   --max_target_length 50 \
-   --generation_max_length 256 \
+   --max_source_length 320 \
+   --max_target_length 150 \
+   --generation_max_length 150 \
    --add_task_name False \
    --add_dataset_name False \
    --overwrite_output_dir \
@@ -56,9 +56,9 @@ python src/run_t5.py \
    --num_train_epochs 3 \
    --bf16 \
    --run_name your_job_name \
-   --max_source_length 512 \
-   --max_target_length 128 \
-   --generation_max_length 128 \
+   --max_source_length 320 \
+   --max_target_length 256 \
+   --generation_max_length 256 \
    --add_task_name False \
    --add_dataset_name False \
    --overwrite_output_dir \
@@ -97,7 +97,7 @@ python src/run_t5.py \
    --num_train_epochs 3 \
    --bf16 \
    --run_name your_job_name \
-   --max_source_length 512 \
+   --max_source_length 256 \
    --max_target_length 128 \
    --generation_max_length 128 \
    --add_task_name False \
@@ -138,9 +138,9 @@ python src/run_t5.py \
    --num_train_epochs 3 \
    --bf16 \
    --run_name your_job_name \
-   --max_source_length 512 \
-   --max_target_length 128 \
-   --generation_max_length 128 \
+   --max_source_length 130 \
+   --max_target_length 120 \
+   --generation_max_length 120 \
    --add_task_name False \
    --add_dataset_name False \
    --overwrite_output_dir \
