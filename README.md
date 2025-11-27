@@ -15,12 +15,13 @@
 ```sh
 conda create -y -n nlp python=3.10.12
 conda activate nlp 
+cd SAPT
 pip install -r requirements_v2.txt
 ```
 
 2. Generating data for CodeTask dataset 
 ```sh
-python CodeTask_Benchmark/parse_into_json.py
+python CODETASK_Benchmark/parse_into_json.py
 ```
 
 3. Config for CodeTask has been already created and stored in  `configs/CodeTask`

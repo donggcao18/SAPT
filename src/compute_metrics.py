@@ -317,9 +317,9 @@ def smooth_bleu_score(prediction, ground_truth, xlingual=False):
         return 0.0
     
     # BLEU expects reference_corpus as list of lists and translation_corpus as list
-    reference_corpus = [[ref_tokens]]  # Single reference wrapped in list
-    translation_corpus = [pred_tokens]
-
+    reference_corpus = ref_tokens  # Single reference wrapped in list
+    translation_corpus = pred_tokens
+    print(reference_corpus)
     return smooth_bleu_scorer.compute_bleu(reference_corpus, translation_corpus)
 
 
@@ -333,7 +333,7 @@ def metric_max_over_ground_truths(metric_fn, prediction, ground_truths, xlingual
 
 def compute_metrics(predictions, references, xlingual=False):
     assert len(predictions) == len(references), f"# of predictions {len(predictions)} doesn't match # of references {len(references)}."
-    exact_match, rouge1, rougeL, bleu = 0, 0, 0, 0
+    exact_match, rouge1, rougeL, bleu, smooth_bleu = 0, 0, 0, 0, 0
     for pred, gold in zip(predictions, references):
         gold = [gold]
         exact_match += metric_max_over_ground_truths(

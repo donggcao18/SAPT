@@ -312,7 +312,7 @@ class CLInstructions(datasets.GeneratorBasedBuilder):
             for dataset in task_config[task]:
                 ds_name = dataset["dataset name"]
                 sampling_strategy = dataset.get("sampling strategy", "random")
-                ds_path = os.path.join(path, task, ds_name, subset + '.json')
+                ds_path = os.path.join(path, ds_name, subset + '.json')
                 print(ds_path)
                 labels_path = None
                 assert os.path.exists(ds_path)
